@@ -152,10 +152,12 @@
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links" >
 						<% String errorMsg = "";
-						for(Cookie c: request.getCookies()) {
-							if(c.getName().equals("errorMessage")) {
-								errorMsg = c.getValue();
-								break;
+						if(request.getCookies().length > 0) {
+							for(Cookie c: request.getCookies()) {
+								if(c.getName().equals("errorMessage")) {
+									errorMsg = c.getValue();
+									break;
+								}
 							}
 						}
 							if(errorMsg.equals("Please"))
