@@ -8,6 +8,7 @@
 </head>
 <body>
 	<% String currentUsername = "";
+	if(request.getCookies().length > 0){
 		for(Cookie c: request.getCookies()) {
 			System.out.println("(LP) > " + c.getName() + " - " + c.getValue());
 			if(c.getName().equals("currentUser")) {
@@ -17,6 +18,7 @@
 				break;
 			}
 		}
+	}
 	%>
 	<h1>Hello from landing page, <%= currentUsername %>!</h1>
 </body>
